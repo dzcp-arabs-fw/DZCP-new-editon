@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>نظام الأدوار - DZCP</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <h3>أنظمة DZCP</h3>
+        <ul>
+            <li><a href="event-system.html">نظام الأحداث</a></li>
+            <li class="active"><a href="role-system.html">نظام الأدوار</a></li>
+            <li><a href="command-system.html">نظام الأوامر</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <h1>نظام الأدوار في DZCP</h1>
+
+        <section class="section">
+            <h2>مقدمة</h2>
+            <p>يسمح لك نظام الأدوار بإنشاء أدوار مخصصة مع سلوكيات وخواص فريدة.</p>
+        </section>
+
+        <section class="section">
+            <h2>إنشاء دور مخصص</h2>
+            <div class="code-block">
+                    <pre><code class="language-csharp">
+                        using DZCP.API;
+using DZCP.Roles;
+
+public class ScientistGuardRole : CustomRole
+{
+    public override string RoleName => "Scientist Guard";
+    public override string Description => "حارس مختص بحماية العلماء";
+    public override TeamType Team => TeamType.MTF;
+
+    public override void OnSpawn(Player player)
+    {
+        // منح المعدات عند الظهور
+        player.Inventory.Add(ItemType.GunCOM15);
+        player.Inventory.Add(ItemType.Medkit);
+
+        // إرسال رسالة ترحيبية
+        player.SendMessage("أنت الآن حارس عالم!");
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>تسجيل الدور</h2>
+            <p>لجعل الدور متاحًا في اللعبة:</p>
+            <div class="code-block">
+                    <pre><code class="language-csharp">public class MyPlugin : IPlugin
+{
+    public void OnEnabled()
+    {
+        RoleManager.RegisterRole(new ScientistGuardRole());
+    }
+}</code></pre>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

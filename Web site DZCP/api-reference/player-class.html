@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>كلاس اللاعب - مرجع DZCP API</title>
+</head>
+<body>
+<article class="api-reference">
+    <h1>كلاس Player</h1>
+    <p>يمثل هذا الكائن لاعبًا متصلًا بالسيرفر ويوفر جميع الخصائص والوظائف المتعلقة به.</p>
+
+    <section>
+        <h2>الخصائص الرئيسية</h2>
+        <table class="api-table">
+            <tr>
+                <th>الخاصية</th>
+                <th>النوع</th>
+                <th>الوصف</th>
+            </tr>
+            <tr>
+                <td>UserId</td>
+                <td>string</td>
+                <td>المعرف الفريد للاعب</td>
+            </tr>
+            <tr>
+                <td>Nickname</td>
+                <td>string</td>
+                <td>اسم اللاعب في اللعبة</td>
+            </tr>
+            <tr>
+                <td>Health</td>
+                <td>float</td>
+                <td>نقاط الصحة الحالية (0-100)</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>الوظائف الأساسية</h2>
+        <div class="method">
+            <h3>SendMessage</h3>
+            <p>إرسال رسالة للاعب</p>
+            <div class="code-block">
+                <pre><code class="language-csharp">player.SendMessage("مرحباً بك في السيرفر!");</code></pre>
+            </div>
+        </div>
+
+        <div class="method">
+            <h3>Teleport</h3>
+            <p>نقل اللاعب إلى موقع معين</p>
+            <div class="code-block">
+                <pre><code class="language-csharp">player.Teleport(new Vector3(10, 5, 20));</code></pre>
+            </div>
+        </div>
+    </section>
+</article>
+</body>
+</html>

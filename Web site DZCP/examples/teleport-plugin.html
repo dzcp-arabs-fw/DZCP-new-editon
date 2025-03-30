@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>بلغن النقل - أمثلة DZCP</title>
+</head>
+<body>
+<article class="example">
+    <h1>بلغن أمر النقل (Teleport)</h1>
+
+    <div class="meta">
+        <span class="level">مبتدئ</span>
+        <span class="time">10 دقائق</span>
+    </div>
+
+    <section>
+        <h2>الخطوة 1: إنشاء ملف البلغن</h2>
+        <p>أنشئ ملفًا جديدًا باسم <code>TeleportPlugin.cs</code></p>
+    </section>
+
+    <section>
+        <h2>الخطوة 2: كتابة الهيكل الأساسي</h2>
+        <div class="code-block">
+                <pre><code class="language-csharp">using DZCP.API;
+using DZCP.Commands;
+
+public class TeleportPlugin : IPlugin
+{
+    public string Name => "Teleport Plugin";
+
+    public void OnEnabled()
+    {
+        CommandManager.RegisterCommand("tp", "ينقل اللاعب إلى هدف", OnTeleportCommand);
+    }
+
+    private void OnTeleportCommand(Player player, string[] args)
+    {
+        // سيتم تنفيذ الكود هنا
+    }
+}</code></pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>الخطوة 3: تنفيذ الأمر</h2>
+        <div class="code-block">
+                <pre><code class="language-csharp">private void OnTeleportCommand(Player player, string[] args)
+{
+    if (args.Length < 1)
+    {
+        player.SendMessage("استخدم: .tp [اسم اللاعب]");
+        return;
+    }
+
+    Player target = Player.Get(args[0]);
+    if (target != null)
+    {
+        player.Teleport(target.Position);
+        player.SendMessage($"تم نقلك إلى {target.Nickname}");
+    }
+    else
+    {
+        player.SendMessage("اللاعب غير موجود!");
+    }
+}</code></pre>
+        </div>
+    </section>
+
+    <div class="download">
+        <a href="/downloads/TeleportPlugin.cs" class="btn">تحميل الكود كامل</a>
+    </div>
+</article>
+</body>
+</html>

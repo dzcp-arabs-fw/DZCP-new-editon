@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>نظام الأحداث - DZCP</title>
+</head>
+<body>
+<article class="documentation">
+    <h1>نظام الأحداث في DZCP</h1>
+
+    <section>
+        <h2>المقدمة</h2>
+        <p>يسمح نظام الأحداث بالتفاعل مع جميع أحداث اللعبة عبر مشغلات (handlers) سهلة الاستخدام.</p>
+    </section>
+
+    <section>
+        <h2>الأحداث المتاحة</h2>
+        <div class="event-card">
+            <h3>حدث انضمام اللاعب</h3>
+            <p>يتم تشغيله عندما ينضم لاعب جديد للسيرفر</p>
+            <div class="code-block">
+                    <pre><code class="language-csharp">EventManager.OnPlayerJoin += player =>
+{
+    player.SendMessage("مرحباً بك!");
+};</code></pre>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <h3>حدث استخدام العنصر</h3>
+            <p>يتم تشغيله عند استخدام أي عنصر في اللعبة</p>
+            <div class="code-block">
+                    <pre><code class="language-csharp">
+                        EventManager.OnItemUse += (player, item) =>
+   {
+        if (item.Type == ItemType.Medkit)
+         player.Heal(50);
+};</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-practices">
+        <h2>أفضل الممارسات</h2>
+        <ul>
+            <li>استخدم أحداثًا محددة بدلاً من التحقق المستمر</li>
+            <li>ألغِ تسجيل الأحداث عند تعطيل البلغن</li>
+        </ul>
+    </section>
+</article>
+</body>
+</html>
