@@ -1,0 +1,12 @@
+- name: DZCP Documentation
+  href: index.md
+  items:
+      - name: Getting Started
+        href: getting-started.md
+      - name: API Reference
+        href: api/
+        items:
+            - name: DZCP.API
+              href: api/DZCP.API.yml
+            - name: DZCP.Events
+              href: api/DZCP.Events.yml
