@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Plugin Config Schema",
+  "type": "object",
+  "properties": {
+    "debug_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "welcome_message": {
+      "type": "string",
+      "default": "Welcome!"
+    }
+  },
+  "additionalProperties": false
+}

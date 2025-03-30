@@ -1,0 +1,6 @@
+{
+  "welcome_message": "Welcome to our server!",
+  "no_permission": "You don't have permission to do that!",
+  "player_joined": "{0} has joined the game",
+  "player_left": "{0} has left the game"
+}

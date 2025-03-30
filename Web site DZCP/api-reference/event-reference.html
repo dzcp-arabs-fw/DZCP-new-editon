@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>مرجع الأحداث - DZCP API</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<div class="api-container">
+    <h1>مرجع أحداث DZCP</h1>
+
+    <div class="event-category">
+        <h2>أحداث اللاعب</h2>
+
+        <div class="event-item">
+            <h3>OnPlayerJoin</h3>
+            <p>يتم استدعاؤه عندما ينضم لاعب جديد للسيرفر</p>
+            <div class="code-block">
+                    <pre><code class="language-csharp">EventManager.OnPlayerJoin += player =>
+{
+    player.SendMessage("مرحباً بك في السيرفر!");
+};</code></pre>
+            </div>
+            <table class="params-table">
+                <tr>
+                    <th>المعامل</th>
+                    <th>النوع</th>
+                    <th>الوصف</th>
+                </tr>
+                <tr>
+                    <td>player</td>
+                    <td>Player</td>
+                    <td>اللاعب الذي انضم</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="event-item">
+            <h3>OnPlayerDeath</h3>
+            <p>يتم استدعاؤه عندما يموت لاعب</p>
+            <div class="code-block">
+                    <pre><code class="language-csharp">EventManager.OnPlayerDeath += (player, killer, damageType) =>
+{
+    if (killer != null)
+        killer.SendMessage($"لقد قتلت {player.Nickname}!");
+};</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-category">
+        <h2>أحداث العناصر</h2>
+
+        <div class="event-item">
+            <h3>OnItemPickup</h3>
+            <p>يتم استدعاؤه عندما يلتقط لاعب عنصرًا</p>
+            <div class="code-block">
+                    <pre><code class="language-csharp">EventManager.OnItemPickup += (player, item) =>
+{
+    if (item.Type == ItemType.SCP268)
+        player.SendMessage("احذر! هذا العنصر خطير");
+};</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
