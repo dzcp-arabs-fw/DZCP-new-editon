@@ -10,4 +10,3 @@
 ```powershell
 ./build.ps1
 ```
-# is not complete
