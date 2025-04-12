@@ -5,10 +5,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using DZCP.Installer;
+using DZCP.Loader;
 using DZCP.Logging;
-using DZCP.Models;
+using DZCP.Loader;
 using Newtonsoft.Json;
 using PluginAPI.Helpers;
+using UnityEngine.PlayerLoop;
+using IPlugin = DZCP_new_editon.IPlugin;
 
 public static class PluginUpdater
 {
@@ -18,14 +22,14 @@ public static class PluginUpdater
         http.DefaultRequestHeaders.Add("User-Agent", "DZCP-Updater");
 
         var response = await http.GetStringAsync("https://api.dzcp.dev/plugins/updates");
-        var updates = JsonConvert.DeserializeObject<List<PluginUpdate>>(response);
+        var updates = JsonConvert.DeserializeObject<List<DZCP.API.IPlugin>>(response);
 
         foreach (var update in updates)
         {
-            if (update.Version > new Version(update.PluginId))
+            if (update.Version > new Version(update.Name))
             {
-                await DownloadUpdate(update.Url);
-                Logger.Info($"تم تحديث {update.PluginName} إلى الإصدار {update.Version}");
+                await DownloadUpdate(update.Author);
+                Logger.Info($"تم تحديث {update.Name} إلى الإصدار {update.Version}");
             }
         }
     }

@@ -1,9 +1,12 @@
 // DZCP/API/Configs/SmartConfig.cs
 
 using System.IO;
-using DZCP.API.Interfaces;
+using DZCP.Core.Configs;
 using DZCP.Loader;
+using DZCP.NewEdition;
 using PluginAPI.Helpers;
+using DZCPLoader = DZCP_new_editon.DZCPLoader;
+using IConfig = DZCP.API.Interfaces.IConfig;
 
 public class SmartConfig<T> where T : IConfig, new()
 {
@@ -26,11 +29,10 @@ public class SmartConfig<T> where T : IConfig, new()
         if (!File.Exists(path))
         {
             _instance = new T();
-            File.WriteAllText(path, Loader.ConfigSerializer.Serialize(_instance));
+            File.WriteAllText(path, DZCPLoader.Instance.HarmonyInstance.Id);
             return;
         }
 
-        _instance = Loader.ConfigDeserializer.Deserialize<T>(File.ReadAllText(path));
 
         // مراقبة التغييرات
         _watcher = new FileSystemWatcher(Paths.Configs, $"{typeof(T).Name}.yml")

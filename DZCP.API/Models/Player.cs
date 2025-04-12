@@ -15,7 +15,7 @@ namespace DZCP.API.Models
         public bool IsInvisible { get; set; }
         public List<DZCP_new_editon.DZCP.CustomRoles.DZCP.Objectives.RoleObjective> CurrentObjectives { get; set; } = new();
 
-        public void SendMessage(string message)
+        public void SendMessage(string message, int i)
         {
             // Implementation to send message to player
         }
@@ -32,6 +32,11 @@ namespace DZCP.API.Models
         public bool HasPermission(string permission)
         {
             return PermissionManager.HasPermission(this, permission);
+        }
+
+        public void SendMessage(string youDonTHavePermissionToUseThisCommand)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

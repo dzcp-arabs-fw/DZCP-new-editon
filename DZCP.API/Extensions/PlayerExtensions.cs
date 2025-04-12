@@ -19,9 +19,9 @@ namespace DZCP.API.Extensions
             // تطبيق نقاط المكافأة
             player.SendMessage($"You earned {points} points!");
         }
-        public static bool TryGetItemInHand(this Player player, out Item item)
+        public static bool TryGetItemInHand(this Player player, out string item)
         {
-            item = player.CurrentItem;
+            item = player.CurrentItem.Name;
             return item != null;
         }
     }

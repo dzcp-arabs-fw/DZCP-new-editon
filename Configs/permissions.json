@@ -1,0 +1,19 @@
+{
+  "groups": {
+    "admin": {
+      "permissions": ["*"]
+    },
+    "moderator": {
+      "permissions": ["kick", "ban", "mute"]
+    },
+    "vip": {
+      "permissions": ["vip.access"]
+    }
+  },
+  "users": {
+    "76561198000000000": {
+      "groups": ["admin"],
+      "permissions": []
+    }
+  }
+}

@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace DZCP.Loader
 {
-    public static class Loader
+    public static class PluginsLoader
     {
         private static readonly List<IPlugin> _loadedPlugins = new();
         private static readonly DependencyResolver _resolver = new();
@@ -38,7 +38,7 @@ namespace DZCP.Loader
                         {
                             var plugin = (IPlugin)_resolver.CreateInstance(type);
                             _loadedPlugins.Add(plugin);
-                            plugin.OnEnabled();
+                            plugin.OnEnable();
                         }
                     }
                 }
@@ -55,7 +55,7 @@ namespace DZCP.Loader
             {
                 try
                 {
-                    plugin.OnDisabled();
+                    plugin.OnDisable();
                 }
                 catch (Exception ex)
                 {

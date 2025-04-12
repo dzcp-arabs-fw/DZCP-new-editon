@@ -19,4 +19,18 @@ namespace DZCP.API.Enums
         Scp173,
         Scp939
     }
+
+    /// <summary>
+    /// أنواع الفرق في اللعبة
+    /// </summary>
+    public enum TeamType
+    {
+        SCP,
+        MTF,
+        Chaos,
+        Scientist,
+        ClassD,
+        Other
+    }
 }
+    
