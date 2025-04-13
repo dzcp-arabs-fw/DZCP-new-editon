@@ -37,7 +37,7 @@ namespace DZCP.Logging
             Log(LogLevel.Warning, message);
         }
 
-        public static void Error(string message)
+        public static void Error(string message, Exception exception)
         {
             Log(LogLevel.Error, message);
         }
@@ -64,6 +64,11 @@ namespace DZCP.Logging
             {
                 Console.WriteLine($"Failed to write to log file: {ex}");
             }
+        }
+
+        public static void Error(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 

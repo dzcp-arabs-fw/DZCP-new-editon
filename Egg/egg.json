@@ -1,0 +1,20 @@
+{
+  "name": "DZCP - DZARENA Frame Work scp:sl",
+  "description": "Installs DZCP automatically with Nginx + PHP + MySQL",
+  "startup": "php -S 0.0.0.0:8080 -t public",
+  "env": {
+    "INSTALL_URL": {
+      "description": "Download URL for the DZCP CMS",
+      "default": "https://dzcp.de/download/DZCP-latest.zip"
+    }
+  },
+  "scripts": {
+    "installation": {
+      "script": "apt update && apt install -y unzip curl php php-mysql && curl -L ${INSTALL_URL} -o dzcp.zip && unzip dzcp.zip -d /home/container && rm dzcp.zip",
+      "container": "debian:bullseye-slim"
+    }
+  },
+  "docker_images": {
+    "default": "ghcr.io/pterodactyl/yolks:php_8.0"
+  }
+}

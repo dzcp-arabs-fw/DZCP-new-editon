@@ -14,6 +14,26 @@ namespace DZCP.Example
         public string Name => "Example Plugin";
         public string Author => "DZCP Team";
         public Version Version => new(1, 0, 0);
+        public void Initialize()
+        {
+            EventManager.OnPlayerJoin += OnPlayerJoin ;
+
+        }
+
+        public void Shutdown()
+        {
+            EventManager.OnPlayerJoin -= OnPlayerJoin;
+        }
+
+        public void OnEnable()
+        {
+            EventManager.OnPlayerJoin -= OnPlayerJoin;
+        }
+
+        public void OnDisable()
+        {
+            EventManager.OnPlayerJoin -= OnPlayerJoin;
+        }
 
         private ExampleConfig _config;
 
@@ -30,6 +50,7 @@ namespace DZCP.Example
         public void OnDisabled()
         {
             EventManager.OnPlayerJoin -= OnPlayerJoin;
+
             Logger.Info($"{Name} unloaded!");
         }
 

@@ -1,16 +1,32 @@
 using System;
+using DZCP.Framework;
+using DZCP.Types;
 using PluginAPI.Core;
-using PluginAPI.Core.Attributes;
-using PluginAPI.Enums;
 
 namespace DZCP.Events
 {
-    public class OnScp173Blink
+    public class OnScp173BlinkDZCP
     {
-        [PluginEvent(ServerEventType.Scp173BreakneckSpeeds)]
-        public void HandleScp173Blink(Player player)
+        public static void Initialize()
         {
-            ServerConsole.AddLog($"Player {player.Nickname} blinked near SCP-173!", ConsoleColor.DarkRed);
+            DZCPEventManager.Register<Scp173BlinkEvent>(HandleScp173Blink);
+        }
+
+        private static void HandleScp173Blink(Scp173BlinkEvent e)
+        {
+            ServerConsole.AddLog($"[DZCP] SCP-173 أغمض عينيه لمدة {e.Duration} ثانية.", ConsoleColor.Cyan);
+        }
+    }
+
+    public class Scp173BlinkEvent
+    {
+        public Player Scp { get; }
+        public float Duration { get; }
+
+        public Scp173BlinkEvent(Player scp, float duration)
+        {
+            Scp = scp;
+            Duration = duration;
         }
     }
 }
