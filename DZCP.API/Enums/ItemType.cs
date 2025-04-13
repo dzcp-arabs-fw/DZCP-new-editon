@@ -11,6 +11,18 @@ namespace DZCP.API.Enums
         SCP268,
         SCP207,
         SCP018,
-        CustomItem
+        CustomItem,
+        KeycardScientist,
+        KeycardResearchCoordinator,
+        KeycardZoneManager,
+        KeycardGuard,
+        KeycardMTFPrivate,
+        KeycardContainmentEngineer,
+        KeycardMTFOperative,
+        KeycardMTFCaptain,
+        KeycardFacilityManager,
+        KeycardChaosInsurgency,
+        KeycardO5
+        
     }
 }

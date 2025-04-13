@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DZCP.Permissions;
 using DZCP.Roles;
@@ -7,6 +8,11 @@ namespace DZCP.API.Models
     public class Player
     {
         public string UserId { get; set; }
+        public string Name { get; set; }
+        public bool IsMuted { get; set; }
+        public DateTime? MuteExpiry { get; set; }
+        public bool IsBanned { get; set; }
+        public DateTime? BanExpiry { get; set; }
         public string Nickname { get; set; }
         public Item CurrentItem { get; set; }
         public CustomRole Role { get; set; }

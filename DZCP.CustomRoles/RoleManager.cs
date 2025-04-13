@@ -66,5 +66,15 @@ namespace DZCP.API.Roles
             {
             }
         }
+            
+        public class CustomRole
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public int Health { get; set; }
+            public List<string> Inventory { get; set; }
+            public List<string> Permissions { get; set; }
+        }
+        }
     }
-}
