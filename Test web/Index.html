@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DZCP Framework</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        header {
+            position: relative;
+            z-index: 10;
+        }
+
+        h2, p, a {
+            position: relative;
+            z-index: 10;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding-top: 20vh;
+        }
+    </style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<header class="py-6">
+    <div class="container mx-auto flex justify-between items-center text-white">
+        <h1 class="text-3xl font-bold">DZCP Framework</h1>
+        <nav class="space-x-4">
+            <a href="docs.html" class="hover:underline">Documentation</a>
+            <a href="learn.html" class="hover:underline">Learn</a>
+            <a href="learn-plugin.html" class="hover:underline">Learn Plugin</a>
+            <a href="plugins-store.html" class="hover:underline">Plugins Store</a>
+            <a href="upload-plugin.html" class="hover:underline">Upload Plugin</a>
+        </nav>
+    </div>
+</header>
+
+<main class="content">
+    <h2 class="text-5xl font-extrabold mb-6">Welcome to DZCP Framework</h2>
+    <p class="text-lg text-gray-300 mb-8">The ultimate event-driven framework for SCP:SL development.</p>
+    <a href="docs.html" class="bg-blue-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-600 transition">Explore Documentation</a>
+</main>
+
+<footer class="bg-gray-900 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>© 2025 DZCP Framework. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    // Three.js setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg') });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // Torus geometry
+    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
+    const torus = new THREE.Mesh(geometry, material);
+    scene.add(torus);
+
+    // Lighting
+    const pointLight = new THREE.PointLight(0xffffff);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff);
+    scene.add(ambientLight);
+
+    // Background Stars
+    function addStar() {
+        const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+        const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+        const star = new THREE.Mesh(geometry, material);
+
+        const [x, y, z] = Array(3)
+            .fill()
+            .map(() => THREE.MathUtils.randFloatSpread(200));
+
+        star.position.set(x, y, z);
+        scene.add(star);
+    }
+    Array(200).fill().forEach(addStar);
+
+    // Camera position
+    camera.position.setZ(30);
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+
+        torus.rotation.x += 0.01;
+        torus.rotation.y += 0.005;
+        torus.rotation.z += 0.01;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    });
+</script>
+</body>
+</html>

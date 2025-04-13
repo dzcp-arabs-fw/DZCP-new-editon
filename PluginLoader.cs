@@ -7,7 +7,7 @@ using DZCP.API;
 
 namespace DZCP.Loader
 {
-    public static class PluginLoader
+    public class PluginLoader
     {
         private static readonly string DZCPRoot = "DZCP";
         private static readonly string PluginsDir = Path.Combine(DZCPRoot, "PLUGINS");

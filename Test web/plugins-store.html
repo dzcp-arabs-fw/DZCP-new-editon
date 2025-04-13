@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plugins Store - DZCP</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+<header class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Plugins Store</h1>
+        <nav>
+            <a href="index.html" class="px-4 hover:underline">Home</a>
+            <a href="upload-plugin.html" class="px-4 hover:underline">Upload Plugin</a>
+            <a href="docs.html" class="px-4 hover:underline">Documentation</a>
+        </nav>
+    </div>
+</header>
+
+<main class="py-10">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Available Plugins</h2>
+        <div id="plugins-list" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Plugins will load dynamically here -->
+        </div>
+    </div>
+</main>
+
+<footer class="bg-blue-600 text-white text-center py-4">
+    <p>© 2025 DZCP Framework. All rights reserved.</p>
+</footer>
+
+<script>
+    // Example Plugin Data
+    const plugins = [
+        { name: "Chat Enhancer", price: 10, rating: 4.5, description: "Enhance your chat system." },
+        { name: "Auto Role Assigner", price: 15, rating: 4.8, description: "Automatically assign roles." },
+        { name: "Custom Commands", price: 20, rating: 5.0, description: "Add custom commands easily." },
+    ];
+
+    const pluginsList = document.getElementById("plugins-list");
+
+    plugins.forEach(plugin => {
+        const pluginCard = document.createElement("div");
+        pluginCard.classList.add("bg-white", "shadow-md", "rounded", "p-4");
+
+        pluginCard.innerHTML = `
+        <h3 class="text-xl font-bold">${plugin.name}</h3>
+        <p class="text-gray-600 text-sm">${plugin.description}</p>
+        <p class="text-green-500 font-bold">$${plugin.price}</p>
+        <p class="text-yellow-500">Rating: ${plugin.rating}</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2 hover:bg-blue-700">View Details</button>
+      `;
+
+        pluginsList.appendChild(pluginCard);
+    });
+</script>
+</body>
+</html>

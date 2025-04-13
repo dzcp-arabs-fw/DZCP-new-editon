@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plugin Details - DZCP</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+<header class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Plugin Details</h1>
+        <nav>
+            <a href="index.html" class="px-4 hover:underline">Home</a>
+            <a href="plugins-store.html" class="px-4 hover:underline">Plugins Store</a>
+            <a href="upload-plugin.html" class="px-4 hover:underline">Upload Plugin</a>
+        </nav>
+    </div>
+</header>
+
+<main class="py-10">
+    <div class="container mx-auto">
+        <div class="bg-white shadow-md rounded p-6">
+            <h2 class="text-3xl font-bold mb-4">Plugin Name</h2>
+            <p class="text-lg text-gray-700 mb-4">This is the detailed description of the plugin. It explains the features and use cases of the plugin.</p>
+            <p class="text-lg font-bold text-green-500 mb-4">Price: $10</p>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-6">Download Plugin</button>
+        </div>
+
+        <div class="bg-white shadow-md rounded p-6 mt-6">
+            <h3 class="text-2xl font-bold mb-4">Comments</h3>
+            <div id="comments-section">
+                <!-- Example Comment -->
+                <div class="border-b border-gray-300 pb-4 mb-4">
+                    <p class="text-gray-800"><strong>John Doe:</strong> This plugin is amazing!</p>
+                </div>
+                <!-- More comments can be dynamically added -->
+            </div>
+            <form id="comment-form" class="mt-4">
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight mb-4" placeholder="Write a comment..."></textarea>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Add Comment</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-blue-600 text-white text-center py-4">
+    <p>© 2025 DZCP Framework. All rights reserved.</p>
+</footer>
+
+<script>
+    // Example comment submission logic
+    document.getElementById("comment-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const commentText = event.target.querySelector("textarea").value;
+        const commentSection = document.getElementById("comments-section");
+        const newComment = document.createElement("div");
+        newComment.classList.add("border-b", "border-gray-300", "pb-4", "mb-4");
+        newComment.innerHTML = `<p class="text-gray-800"><strong>You:</strong> ${commentText}</p>`;
+        commentSection.appendChild(newComment);
+        event.target.reset();
+    });
+</script>
+</body>
+</html>

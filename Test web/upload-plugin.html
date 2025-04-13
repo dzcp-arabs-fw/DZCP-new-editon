@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Rate Plugin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .comment-box {
+            margin-top: 30px;
+        }
+
+        .comment {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-2xl font-bold mb-4">Upload and Rate Plugin</h1>
+    <form id="uploadForm">
+        <!-- اسم المشروع -->
+        <div class="form-group">
+            <label for="pluginName">Project Name</label>
+            <input type="text" id="pluginName" name="pluginName" placeholder="Enter your project name" required />
+        </div>
+
+        <!-- وصف المشروع -->
+        <div class="form-group">
+            <label for="pluginDescription">Project Description</label>
+            <textarea id="pluginDescription" name="pluginDescription" rows="4" placeholder="Write a short description about your project..." required></textarea>
+        </div>
+
+        <!-- رفع المشروع -->
+        <div class="form-group">
+            <label for="pluginFile">Plugin File</label>
+            <input type="file" id="pluginFile" name="pluginFile" required />
+        </div>
+
+        <!-- رفع الصور -->
+        <div class="form-group">
+            <label for="pluginImage">Upload Images</label>
+            <input type="file" id="pluginImage" name="pluginImage" accept="image/*" multiple />
+        </div>
+
+        <!-- زر الرفع -->
+        <button type="submit" class="btn-primary">Upload Plugin</button>
+    </form>
+
+    <!-- واجهة التقييم والتعليقات -->
+    <div class="comment-box">
+        <h2 class="text-xl font-bold mt-6">Ratings and Comments</h2>
+
+        <!-- مكان التقييم -->
+        <div class="form-group">
+            <label for="rating">Rate this Plugin</label>
+            <select id="rating" name="rating">
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Star</option>
+            </select>
+        </div>
+
+        <!-- إضافة تعليق -->
+        <div class="form-group">
+            <label for="comment">Add Comment</label>
+            <textarea id="comment" rows="3" placeholder="Write your comment..."></textarea>
+            <button type="button" class="btn-primary mt-2" id="addComment">Submit Comment</button>
+        </div>
+
+        <!-- عرض التعليقات -->
+        <div id="commentsSection">
+            <div class="comment">
+                <strong>User1:</strong>
+                <p>This plugin is amazing!</p>
+            </div>
+            <!-- المزيد من التعليقات ستظهر هنا -->
+        </div>
+    </div>
+</div>
+
+<script>
+    // التعامل مع رفع المشروع
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const pluginName = document.getElementById('pluginName').value;
+        const pluginDescription = document.getElementById('pluginDescription').value;
+        const pluginFile = document.getElementById('pluginFile').files[0];
+        const pluginImages = document.getElementById('pluginImage').files;
+
+        if (!pluginFile) {
+            alert('Please select a plugin file to upload!');
+            return;
+        }
+
+        // محاكاة رفع البيانات
+        console.log('Uploading plugin:', pluginName, pluginDescription);
+        alert('Plugin uploaded successfully!');
+    });
+
+    // إضافة تعليق
+    document.getElementById('addComment').addEventListener('click', function () {
+        const commentText = document.getElementById('comment').value;
+        if (!commentText) {
+            alert('Please write a comment!');
+            return;
+        }
+
+        const commentsSection = document.getElementById('commentsSection');
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerHTML = `<strong>You:</strong><p>${commentText}</p>`;
+        commentsSection.appendChild(commentDiv);
+
+        document.getElementById('comment').value = ''; // إفراغ الحقل
+    });
+</script>
+</body>
+</html>

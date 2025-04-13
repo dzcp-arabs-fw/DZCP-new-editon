@@ -5,12 +5,12 @@ using Newtonsoft.Json;
 
 namespace DZCP.API.Services
 {
-    public class TranslationService : ITranslation
+    public class TranslationServiceDzcp : ITranslation
     {
         private Dictionary<string, string> _translations = new();
         private readonly string _language;
 
-        public TranslationService(string language = "en-US")
+        public TranslationServiceDzcp(string language = "en-US")
         {
             _language = language;
             LoadTranslations();

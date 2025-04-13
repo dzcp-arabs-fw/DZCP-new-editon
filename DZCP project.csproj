@@ -54,6 +54,12 @@
       <Reference Include="CommandSystem.Core">
         <HintPath>..\..\..\Downloads\CommandSystem.Core.dll</HintPath>
       </Reference>
+      <Reference Include="Discord.Net.Core, Version=3.17.2.0, Culture=neutral, processorArchitecture=MSIL">
+        <HintPath>..\packages\Discord.Net.Core.3.17.2\lib\net461\Discord.Net.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Discord.Net.Rest, Version=3.17.2.0, Culture=neutral, processorArchitecture=MSIL">
+        <HintPath>..\packages\Discord.Net.Rest.3.17.2\lib\net461\Discord.Net.Rest.dll</HintPath>
+      </Reference>
       <Reference Include="DnsClient">
         <HintPath>..\..\..\Downloads\DnsClient.dll</HintPath>
       </Reference>
@@ -141,6 +147,9 @@
       <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
         <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
       </Reference>
+      <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+        <HintPath>..\packages\System.Collections.Immutable.8.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+      </Reference>
       <Reference Include="System.ComponentModel.Composition">
         <HintPath>..\..\..\Downloads\System.ComponentModel.Composition.dll</HintPath>
       </Reference>
@@ -179,6 +188,9 @@
       </Reference>
       <Reference Include="System.EnterpriseServices">
         <HintPath>..\..\..\Downloads\System.EnterpriseServices.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Interactive.Async, Version=6.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+        <HintPath>..\packages\System.Interactive.Async.6.0.1\lib\net48\System.Interactive.Async.dll</HintPath>
       </Reference>
       <Reference Include="System.IO.Compression">
         <HintPath>..\..\..\Downloads\System.IO.Compression.dll</HintPath>
@@ -222,6 +234,9 @@
       </Reference>
       <Reference Include="System.Transactions">
         <HintPath>..\..\..\Downloads\System.Transactions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+        <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
       </Reference>
       <Reference Include="System.Xml">
         <HintPath>..\..\..\Downloads\System.Xml.dll</HintPath>
@@ -510,6 +525,7 @@
       <Content Include="assets\icon.png" />
       <Content Include="CHANGELOG.md" />
       <Content Include="Configs\default-config.yml" />
+      <Content Include="Configs\map_config.json" />
       <Content Include="Configs\permissions.json" />
       <Content Include="docs\API-Reference.md" />
       <Content Include="docs\api\getting-started.md" />
@@ -527,6 +543,9 @@
       <Content Include="DZCP.Installer\DZCP.Installer.csproj" />
       <Content Include="DZCP.Loader\DZCP.Loader.csproj" />
       <Content Include="DZCP.Permissions\DZCP.Permissions.csproj" />
+      <Content Include="Egg\egg.json" />
+      <Content Include="Egg\install.sh" />
+      <Content Include="Egg\startup.sh" />
       <Content Include="resources\schemas\config-schema.json" />
       <Content Include="resources\schemas\permission-schema.json" />
       <Content Include="resources\translations\ar-DZ.json" />
@@ -588,13 +607,18 @@
       <Compile Include="ConsoleBannerShow.cs" />
       <Compile Include="Core\ConfigDeserializer.cs" />
       <Compile Include="Core\DependencyInjection\Container.cs" />
+      <Compile Include="Core\HarmonyManager.cs" />
       <Compile Include="Core\PerformanceOptimizer.cs" />
+      <Compile Include="Core\PluginLoader.cs" />
+      <Compile Include="Core\ProgramPath.cs" />
       <Compile Include="Core\Updater.cs" />
       <Compile Include="DoorstopLoader.cs" />
       <Compile Include="DZCP.Analytics\PlayerStatistics.cs" />
       <Compile Include="DZCP.API\Enums\AmmoType.cs" />
       <Compile Include="DZCP.API\Enums\CassieSettings.cs" />
       <Compile Include="DZCP.API\Enums\DamageType.cs" />
+      <Compile Include="DZCP.API\Enums\Door.cs" />
+      <Compile Include="DZCP.API\Enums\DoorGame.cs" />
       <Compile Include="DZCP.API\Enums\DoorType.cs" />
       <Compile Include="DZCP.API\Enums\Effect.cs" />
       <Compile Include="DZCP.API\Enums\EscapeType.cs" />
@@ -606,10 +630,12 @@
       <Compile Include="DZCP.API\Enums\Layer.cs" />
       <Compile Include="DZCP.API\Enums\MenuType.cs" />
       <Compile Include="DZCP.API\Enums\NukeState.cs" />
+      <Compile Include="DZCP.API\Enums\PlayerDoor.cs" />
       <Compile Include="DZCP.API\Enums\PlayerHintManagerDZCP.cs" />
       <Compile Include="DZCP.API\Enums\PlayerRole.cs" />
       <Compile Include="DZCP.API\Enums\PlayerType.cs" />
       <Compile Include="DZCP.API\Enums\RaCategory.cs" />
+      <Compile Include="DZCP.API\Enums\RoomType.cs" />
       <Compile Include="DZCP.API\Enums\Scp079ContainmentStatus.cs" />
       <Compile Include="DZCP.API\Enums\Scp079PingType.cs" />
       <Compile Include="DZCP.API\Enums\ScpAttackType.cs" />
@@ -627,10 +653,12 @@
       <Compile Include="DZCP.API\IPlugin.cs" />
       <Compile Include="DZCP.API\Models\Config.cs" />
       <Compile Include="DZCP.API\Models\Item.cs" />
+      <Compile Include="DZCP.API\Models\MenuItem.cs" />
       <Compile Include="DZCP.API\Models\Player.cs" />
       <Compile Include="DZCP.API\Services\LoggerService.cs" />
       <Compile Include="DZCP.API\Services\TranslationService.cs" />
       <Compile Include="DZCP.API\Tests\PlayerTests.cs" />
+      <Compile Include="DZCP.Commands\AdminTools.cs" />
       <Compile Include="DZCP.Commands\CommandManager.cs" />
       <Compile Include="DZCP.Cosmetics\CosmeticManager.cs" />
       <Compile Include="DZCP.CustomItems\CustomItem.cs" />
@@ -652,9 +680,17 @@
       <Compile Include="DZCP.Database\DZCP.Database.cs" />
       <Compile Include="DZCP.ElitePlayers\EliteEffects.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\ItemEventArgs.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\ItemUsedEventArgs.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnAlphaWarheadActivatedDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnDoorMalfunctionDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnFacilityLayoutChangeDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnGravityShiftDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnItemUsedDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnMassHallucinationDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnMysteriousMessageDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerBan.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerChangeRole.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerDisappearanceDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerEnterPocketDimension.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerEscape.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerExitPocketDimension.cs" />
@@ -663,11 +699,31 @@
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerPingHighDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerRevive.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnPlayerSpawn.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnPowerOutageDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnRoleSwapDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp018ThrownDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp0492KillPlayerDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScp049Cure.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnSCP049HealZombie.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp049ReviveCorpseDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp079CloseDoorDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScp079HackDoorDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp079TriggerTeslaGateDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnSCP096CalmDown.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp096EnrageDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp096KillDuringRageDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScp096LookedAt.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp106EnterPocketDimension.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp106PullPlayerDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp106ReappearDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScp106Teleport.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScp173Blink.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp173KillPlayerDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp173MoveDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp330CandyTakenDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp939AttackDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp939EmitAmnesticCloudDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\OnScp939MimicVoiceDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScpContainment.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScpContainmentBreachDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnScpDamagePlayer.cs" />
@@ -675,22 +731,27 @@
       <Compile Include="DZCP.Events\CustomEventArgs\OnServerRestartDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnTeslaGateTriggeredDZCP.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\OnWarheadDetonatedDZCP.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\PlayerEnterZoneEventArgs.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\PlayerEventArgs.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\PlayerJoinEventArgs.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\PlayerLeaveEventArgs.cs" />
+      <Compile Include="DZCP.Events\CustomEventArgs\RoundEndedEventArgs.cs" />
       <Compile Include="DZCP.Events\CustomEventArgs\ServerEventArgs.cs" />
       <Compile Include="DZCP.Events\DZCPEventManager.cs" />
       <Compile Include="DZCP.Events\EventManager.cs" />
       <Compile Include="DZCP.Example\ExampleConfig.cs" />
       <Compile Include="DZCP.Example\ExamplePlugin.cs" />
       <Compile Include="DZCP.Installer\Installer.cs" />
+      <Compile Include="DZCP.Installer\PluginSystem.cs" />
       <Compile Include="DZCP.Installer\Updater DZCP.cs" />
       <Compile Include="DZCP.Installer\Updater.cs" />
       <Compile Include="DZCP.Loader\DependencyResolver.cs" />
       <Compile Include="DZCP.Loader\Loader.cs" />
+      <Compile Include="DZCP.Loader\PluginSettings.cs" />
       <Compile Include="DZCP.Loader\PluginValidator.cs" />
       <Compile Include="DZCP.Loader\ServerASCIILogo.cs" />
       <Compile Include="DZCP.Logging\Logger.cs" />
+      <Compile Include="DZCP.Map\MapManager.cs" />
       <Compile Include="DZCP.Patcher\ExamplePatch.cs" />
       <Compile Include="DZCP.Patcher\GamePatcher.cs" />
       <Compile Include="DZCP.Patcher\Patcher.cs" />
@@ -728,6 +789,9 @@
     <ItemGroup>
       <Analyzer Include="..\packages\xunit.analyzers.1.18.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
       <Analyzer Include="..\packages\xunit.analyzers.1.18.0\analyzers\dotnet\cs\xunit.analyzers.fixes.dll" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="CM\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

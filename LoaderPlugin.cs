@@ -28,7 +28,7 @@ namespace DZCP_new_editon
 
         public bool IsInitialized { get; private set; }
 
-        [PluginEntryPoint("DZCP New Edition", "2.0.0", "Advanced plugin framework for SCP:SL", "YourName")]
+        [PluginEntryPoint("DZCP New Edition", "2.0.0", "Advanced plugin framework for SCP:SL", "MONCEF50G")]
         public void LoadPlugin()
         {
             Instance = this;
@@ -55,6 +55,8 @@ namespace DZCP_new_editon
 
                 // تحميل الباتشات
                 LoadPatches();
+                ReloadAll();
+                LoadPlugin();
 
                 // تحميل الملحقات
                 LoadPlugins();

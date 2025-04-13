@@ -4,11 +4,11 @@ using DZCP.Logging;
 
 namespace DZCP.API.Services
 {
-    public class LoggerService : ILogger
+    public class LoggerServiceDzcp : ILogger
     {
         private readonly string _pluginName;
 
-        public LoggerService(string pluginName)
+        public LoggerServiceDzcp(string pluginName)
         {
             _pluginName = pluginName;
         }

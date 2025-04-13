@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn DZCP</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+<header class="bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-md py-6">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Learn DZCP</h1>
+        <nav class="space-x-4">
+            <a href="index.html" class="hover:underline">Home</a>
+            <a href="docs.html" class="hover:underline">Documentation</a>
+            <a href="plugins-store.html" class="hover:underline">Plugins Store</a>
+        </nav>
+    </div>
+</header>
+
+<main class="py-16">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">Getting Started with DZCP</h2>
+        <p class="text-lg text-gray-600 mb-8">Learn how to create plugins and define events for SCP:SL using DZCP.</p>
+
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h3 class="text-2xl font-semibold text-blue-600 mb-4">Step 1: Setting Up Your Environment</h3>
+            <p class="text-gray-600">Install DZCP by running the following command:</p>
+            <pre class="bg-gray-100 p-4 rounded-lg text-gray-800">npm install dzcp</pre>
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h3 class="text-2xl font-semibold text-blue-600 mb-4">Step 2: Creating Your First Plugin</h3>
+            <p class="text-gray-600 mb-4">Here's an example of how to create and register a new event:</p>
+            <pre class="bg-gray-100 p-4 rounded-lg text-gray-800">
+import { EventPlugin } from 'dzcp';
+
+export class MyPlugin extends EventPlugin {
+  constructor() {
+    super('MyPlugin');
+  }
+
+  onEnable() {
+    this.registerEvent('PlayerEscape', (player) => {
+      console.log(`${player.name} escaped the facility!`);
+    });
+  }
+}
+        </pre>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>© 2025 DZCP Framework. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

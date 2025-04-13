@@ -60,5 +60,6 @@ namespace DZCP.Core
         {
             return Directory.GetFiles(PluginsPath, "*.dll", SearchOption.AllDirectories).Length;
         }
+        
     }
 }
