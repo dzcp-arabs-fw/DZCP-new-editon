@@ -1,0 +1,6 @@
+{
+  "plugin_manager": "Plugin Manager",
+  "install_plugin": "Install Plugin",
+  "update_plugin": "Update Plugin",
+  "no_plugins_found": "No plugins found"
+}
