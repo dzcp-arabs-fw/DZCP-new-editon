@@ -123,7 +123,7 @@ For support, questions, or suggestions:
 
 - **GitHub Issues**: Submit an issue on the [GitHub repository](https://github.com/dzcp-arabs-fw/DZCP-new-editon/issues).
 - **Email**: Contact us at [support@dzcp-framework.org](mailto:support@dzcp-framework.org).
-- **Discord**: Join our community on [Discord](https://discord.gg/dzcp-framework).
+- **Discord**: Join our community on [Discord](https://discord.gg/Z9YRfhjB9z).
 
 ---
 
