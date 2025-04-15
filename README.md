@@ -51,3 +51,80 @@ To set up the DZCP Framework on your SCP:SL server, follow these steps:
 
    ```bash
    git clone https://github.com/dzcp-arabs-fw/DZCP-new-editon.git
+   ```
+
+2. **Build the Solution**:
+
+   Navigate to the cloned directory and build the solution using your preferred C# IDE (e.g., Visual Studio).
+
+3. **Deploy to Server**:
+
+   - Copy the compiled DLLs to your server's plugin directory.
+   - Ensure all dependencies are satisfied and properly referenced.
+
+4. **Configure Settings**:
+
+   - Edit the configuration files located in the `Configs` directory to tailor the framework to your server's needs.
+
+5. **Restart the Server**:
+
+   - Restart your SCP:SL server to apply the changes and load the DZCP Framework.
+
+---
+
+## 🧩 Creating Plugins
+
+To develop plugins using the DZCP Framework:
+
+1. **Reference the API**:
+
+   - In your plugin project, add a reference to `DZCP.API.dll`.
+
+2. **Implement Interfaces**:
+
+   - Create classes that implement the necessary interfaces provided by the framework.
+
+3. **Handle Events**:
+
+   - Utilize the event system to respond to in-game events.
+
+4. **Build and Deploy**:
+
+   - Compile your plugin and place the resulting DLL into the server's plugin directory.
+
+5. **Test and Iterate**:
+
+   - Test your plugin in a controlled environment before deploying to a live server.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to contribute to the DZCP Framework:
+
+- Fork the repository.
+- Create a new branch for your feature or bugfix.
+- Commit your changes with clear messages.
+- Submit a pull request detailing your modifications.
+
+Please adhere to the coding standards and guidelines outlined in the `CONTRIBUTING.md` file.
+
+---
+
+## 📬 Contact
+
+For support, questions, or suggestions:
+
+- **GitHub Issues**: Submit an issue on the [GitHub repository](https://github.com/dzcp-arabs-fw/DZCP-new-editon/issues).
+- **Email**: Contact us at [support@dzcp-framework.org](mailto:support@dzcp-framework.org).
+- **Discord**: Join our community on [Discord](https://discord.gg/dzcp-framework).
+
+---
+
+Thank you for using the DZCP Framework! We hope it enhances your SCP:SL server experience.
