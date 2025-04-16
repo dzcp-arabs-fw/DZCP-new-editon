@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Collections.Generic;
 using DZCP_Loader;
 using DZCP.Core;
+using DZCP.Core.Paths;
+using DZCP.Logging;
 using PluginAPI.Core;
 using PluginAPI.Core.Attributes;
 
@@ -18,6 +20,12 @@ namespace SCP_Server
 
         static void Main(string[] args)
         {
+            // تحميل جميع البلجنات
+            var plugins = DZCP.Loader.PluginLoader.LoadAll();
+
+            // بدء السيرفر أو أي شيء آخر بعد تحميل البلجنات
+            Console.WriteLine("Server started with loaded plugins.");
+
             try
             {
                 // عرض البانر
@@ -39,7 +47,7 @@ namespace SCP_Server
                 LogError("فشل تشغيل السيرفر: " + ex);
             }
         }
-
+    
         static void InitializeDirectories()
         {
             Directory.CreateDirectory(_pluginsDir);
