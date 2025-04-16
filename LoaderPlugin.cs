@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using DZCP.Loader;
 using DZCP.Logging;
+using DZCP.NewEdition;
 using HarmonyLib;
 using PluginAPI.Core.Attributes;
 
@@ -104,6 +105,7 @@ namespace DZCP_new_editon
     DZCP New Edition - SCP:SL Plugin Framework
     Version 2.0.0 | Loaded at: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + @"
     ==============================================";
+
 
             Log(banner, LogLevel.Info);
         }
@@ -309,4 +311,24 @@ namespace DZCP_new_editon
 
     }
 
-
+internal class PluginLoaderPlugin
+{
+    public static void Main(string[] args)
+    {
+        {
+            foreach (var dll in Directory.GetFiles("Plugins", "*.dll"))
+            {
+                var assembly = Assembly.LoadFrom(dll);
+                foreach (var type in assembly.GetTypes())
+                {
+                    if (typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
+                    {
+                        var plugin = (IPlugin)Activator.CreateInstance(type);
+                        plugin.OnEnable();
+                        // تخزين المرجع للإغلاق لاحقًا
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,9 +1,4 @@
-// -----------------------------------------------------------------------
-// <copyright file="DZCPLoader.cs" company="DZCP Team">
-// Copyright (c) DZCP Team. All rights reserved.
-// Licensed under the MIT license.
-// </copyright>
-// -----------------------------------------------------------------------
+
 
 namespace DZCP.Loader
 {
