@@ -2,7 +2,7 @@
 
 Welcome to the **DZCP Framework**, an open-source plugin framework designed to simplify and enhance the development of plugins for **SCP: Secret Laboratory (SCP:SL)** servers. This framework provides a modular and extensible architecture, enabling developers to create robust and feature-rich plugins with ease.
 
-# DZCP TEAM:
+# DZCP Devlopers TEAM:
 
 ### owner : dzarenafixer - MONCEF50G
 ### devlopers : kloer26
@@ -133,6 +133,7 @@ For support, questions, or suggestions:
 - **GitHub Issues**: Submit an issue on the [GitHub repository](https://github.com/dzcp-arabs-fw/DZCP-new-editon/issues).
 - **Email**: Contact us at [support@dzcp-framework.org](mailto:support@dzcp-framework.org).
 - **Discord**: Join our community on [Discord](https://discord.gg/Z9YRfhjB9z).
+Reboot server :https://discord.gg/t5vP9XmVnf
 
 ---
 
