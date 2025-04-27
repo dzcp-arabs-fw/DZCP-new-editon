@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DZCP.API\DZCP.API.csproj" />
+        <ProjectReference Include="..\DZCP.Events\DZCP.Events.csproj" />
+    </ItemGroup>
+</Project>
