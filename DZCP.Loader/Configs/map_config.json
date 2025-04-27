@@ -1,0 +1,24 @@
+{
+  "spawn_points": [
+    {
+      "position": [10, 0, -5],
+      "rotation": [0, 90, 0],
+      "role": "medic"
+    },
+    {
+      "position": [-15, 0, 20],
+      "rotation": [0, 180, 0],
+      "role": "engineer"
+    }
+  ],
+  "custom_items": [
+    {
+      "position": [5, 0, 5],
+      "item": "AmmoBox"
+    },
+    {
+      "position": [-10, 0, -10],
+      "item": "HealthPack"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <AssemblyName>ExamplePlugin</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DZCP.API\DZCP.API.csproj" />
+        <ProjectReference Include="..\DZCP.Events\DZCP.Events.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="YamlDotNet" Version="11.2.1" />
+    </ItemGroup>
+</Project>

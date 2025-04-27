@@ -5,7 +5,7 @@ using DZCP.Logging;
 
 namespace DZCP.Loader
 {
-    public static class PluginValidator
+    public static class PluginValidatorDZCP
     {
         public static bool Validate(Type pluginType)
         {

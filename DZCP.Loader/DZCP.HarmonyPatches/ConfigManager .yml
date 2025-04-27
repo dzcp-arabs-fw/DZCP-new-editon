@@ -1,0 +1,17 @@
+public class MyPlugin
+    {
+      private ConfigManager<MyPluginConfig> configManager;
+      
+      public void Initialize()
+      {
+        configManager = new ConfigManager<MyPluginConfig>("Configs/MyPluginConfig.json");
+        var settings = configManager.Config;
+        // استخدام الإعدادات حسب الحاجة
+      }
+    }
+    
+    public class MyPluginConfig
+    {
+      public int SomeSetting { get; set; } = 10;
+      public string AnotherSetting { get; set; } = "default";
+    }

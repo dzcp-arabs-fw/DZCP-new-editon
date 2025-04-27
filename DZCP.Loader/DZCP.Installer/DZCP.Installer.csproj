@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DZCP.API\DZCP.API.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Octokit" Version="0.50.0" />
+    </ItemGroup>
+</Project>
